@@ -17,20 +17,13 @@ struct TitleDetailView: View {
             geometry in
             ScrollView{
                 LazyVStack(alignment: .leading) {
-                    AsyncImage(url: URL(string: title.posterPath ?? "")) {
-                        image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    }placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height * 0.85)
+                    YouTubePlayer(videoId: "pbiQK0msIKg")
+                        .aspectRatio(1.3,contentMode: .fit)
                     
                     Text((title.name ?? title.title) ?? "")
                         .bold()
                         .font(.title2)
-                        .padding(.top, -20)
+                        .padding(5)
                     
                     Text(title.overview ?? "")
                         .padding(5)
